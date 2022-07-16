@@ -1,0 +1,27 @@
+<div class="fullcalendar">
+  <div class="fullcalendar-header">
+    <h4>{{dateString}}</h4>
+    <span class="month-picker" id="month-picker"> {{monthsService.month}} </span>
+
+    <div class="year-picker">
+      <div class="year-change" id="prev-year"> <pre (click)="monthsService.Prevus()"> < </pre> </div>
+      <div class="year-change" id="next-year"> <pre (click)="monthsService.next()"> > </pre> </div>
+      <div class="year" id="year">{{monthsService.year}}</div>
+    </div>
+  </div>
+  <div class="fullcalendar-body">
+    <div class="fullcalendar-weeks">
+      <div>Monday</div>
+      <div>Tuesday</div>
+      <div>Wednesday</div>
+      <div>Thursday</div>
+      <div>Friday</div>
+      <div class="color1">Saturday</div>
+      <div class="color1">Sunday</div>
+    </div>
+    <div class="fullcalendar-days">
+      <div *ngFor="let push of monthsService.emptyStr"></div>
+      <div *ngFor="let fullday of DayArr; let i = index" [class.givenDay]="i+1 === monthsService.date.getDate()" class="day" class="year">{{i+1}} </div>
+    </div>
+  </div>
+</div>
